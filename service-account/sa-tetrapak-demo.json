@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tetrapak-2017-gcp-onboard-00",
+  "private_key_id": "31b3f4c4f0a6c395b4c1c877e84d0143b677414d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDK41NvGnwW8ibS\nh06QDC/bIb5Pydx0yA7FKoTQwN6mG+SVGGb7x2oVs6dlk6woJBkATl4zrkO5ovx4\nE8F43UIh8RIjb1Qp0PL134yAeA5zEbnzsrgTFK+tXsNIShE8IhZ7CIL606jSX/o8\nbGxkLYeRqF6Mqj6M0/AGFPFBPNml2wSt6THEuhd73HqVnXYYHLpbK4s0t6jG76OO\n0eLm3OarNWgzzIAWjt1wUKSz4xMA2ZnS2gjzTNPGvJvEgP8+q6HGsYoVTxcOEQKJ\nzw8FjsaKycJBAe5p46m8tGSmOvYQtxjgoEk+VB8qbpP7iYwYdwjXlSZe11cHZtVQ\nhRo74i2NAgMBAAECggEATqRdA9TVQqOsLrCp4CYJKrxio1TQcifVqdE4WB5abzKi\noLQrvu5mDXFssm/SLGEJm9fEpe2nbL5jdDvcI3hIGRXzfO67RdYrRujW8jkXCL1X\nQcIFncfH7MCtm0iyc4eXBSugcY83ggwX1/IC9bW8NdZ4h7e5tSa1g/X8KdhnWOTi\nq8cp5HRgFGm5MPRfCVw2RjCgv6EkYKUXnH24y5wl0alaZgcF38070/quBKeOMY9j\nJBTzjifjAEEJXuLJkATn+PLKzGPPS1arMTEpUewPjfaQScOOSlnKJIX1Cxl/7Rc3\nTx5G+M8Mc519iOX7nAZb8+8cHS2qA21pKxileQ9RVQKBgQDo/Uxmyu3EWI6Q91k+\nm9KBP8H0IV/ytXGkVpkZ+SsEgi23rt1IitR9hqBUxr19dcM6TSg59cqUKVTqDkT1\noWh1mwIRbfp/U1uiIPHYC2wkBebLgAZ/RQCfL3ExyiholUbCc1BR3XyBxekbazfp\n1bZECcvXPs28197GkJINt8pzSwKBgQDe7Pf1LKBpV0QkLp8oGYwvL8zihglMN0Sn\nMkhkYaXQ+EsT1vtKdpBnyAEiWjCw7tRB4SMnh9GWZCd0Hl/UGCnZBbIIluXdHzEv\nHJVloA7trV3teBfC+Ffiq/pVD/I70/LRVFWUH6Z+hLhADhTccDklM+bLpojjz7Mk\nqdIrkWCDhwKBgQC/UC7KQVuX3HfEhbbceCsUQnxKsJUOwPq9zPYOo9E09IgByi6e\nAJGXOVKyCjdSq75RQ0YCwddEbePyBSGO6KjT2SKLmVkV8CbQLGkp08dKlSX8d/Xd\nz5VBIT27eppPtjPSO8n6TvqLvS06fIH/GqN9nuWoq0NZC5E8Tz3+0aoFnQKBgQCS\nspAtmBNrntCpmsCDi+RTPPpv6tJ9hDU6bX10CUor7OjDAorVIpa+pMASUhWOqWum\nerg+kEMc24WXBVH8aXZIaVYSDvLvA1LDdOTfPmf0gky4M3o3hGOZN6EBjv/R3RUC\nKaQzWGyg/0ecZ2fU9Ei2saPkSg/1Ej4KF3LF1uITSwKBgQCABIIUFsJ/HrdcMwE7\nCP9+c1PBfoLokGJD53d2HFH7cGDsdJUgQupTCk6aIovoNUjDazUNnxnQsUc5/gDh\nxl2SQqtmWWPygdQB2eqFR7A22hTx6AbVzNOnTnv+Lno6CIK7SYyLxYdA+SgnRLob\n5p2+ktIdXwU2pnkYMrmQYcD9oQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sa-tetrapak-demo@tetrapak-2017-gcp-onboard-00.iam.gserviceaccount.com",
+  "client_id": "118174141901257313547",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sa-tetrapak-demo%40tetrapak-2017-gcp-onboard-00.iam.gserviceaccount.com"
+}
+

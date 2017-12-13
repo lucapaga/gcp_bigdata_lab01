@@ -13,29 +13,33 @@
  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  # See the License for the specific language governing permissions and
  # limitations under the License.
- 
+
+echo "GCS Project is: $GCLOUD_PROJECT" 
 projectID=$GCLOUD_PROJECT
+GCSProjectID=$GCLOUD_PROJECT
+#export projectID
 
 #if you want to run the demo multiple times, just increment this variable
-V=100
+V=1
 
 #sandbox location for local operations
 home=~/sandbox/t$V
 
 flowName=run$V
 
-bucket=$projectID-demo
+gcsRegion=europe-west1
+bucket=$projectID-iot-demo
 tempLocation=$bucket/temp/
-dataset=Demo
-jobName=$flowName
+dataset=DemoIoT20171213
+jobName=dataflow-job-$flowName
 maxWorkers=10
 table=$projectID:$dataset.$flowName
-dataflowzone=us-central1-f
+dataflowzone=europe-west1-b
 workerType=custom-4-8192
 
-topic=$flowName
+topic=iot-temp-measures-$V
 topicFullName=projects/$projectID/topics/$topic
 
-iotzone=us-central1
-deviceName=demo-rs256-device
-registryName=$flowName
+iotzone=europe-west1
+deviceName=demo-rs256-device-$flowName
+registryName=device-registry-$flowName
