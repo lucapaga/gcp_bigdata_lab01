@@ -215,9 +215,13 @@ def main():
 
     # Publish num_messages mesages to the MQTT bridge once per second.
     for i in range(1, args.num_messages + 1):
-        payload = '{}/{}-payload-{}'.format(
+        payload_original = '{}/{}-payload-{}'.format(
                 args.registry_id, args.device_id, i)
-        print('Publishing message {}/{}: \'{}\''.format(
+
+	payload = '\{"message":"{}/{}-message-{}", "city":"Bologna", "temperature": "{}", "hour"."{}"\}'.format(
+                args.registry_id, args.device_id, i, 20, 11)
+
+	print('Publishing message {}/{}: \'{}\''.format(
                 i, args.num_messages, payload))
         seconds_since_issue = (datetime.datetime.utcnow() - jwt_iat).seconds
         if seconds_since_issue > 60 * jwt_exp_mins:
