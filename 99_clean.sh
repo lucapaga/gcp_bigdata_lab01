@@ -14,7 +14,7 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
 
-. set_params.sh
+. 00_set_params.sh
 
 #delete Cloud IoT
 gcloud beta iot devices delete $deviceName --region=$iotzone --registry=$registryName

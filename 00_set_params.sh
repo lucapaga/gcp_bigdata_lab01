@@ -14,9 +14,9 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
 
-echo "GCS Project is: $GCLOUD_PROJECT" 
-projectID=$GCLOUD_PROJECT
-GCSProjectID=$GCLOUD_PROJECT
+projectID=tetrapak-2017-gcp-onboard-00
+GCSProjectID=$projectID
+echo "GCS Project is: $projectID"
 #export projectID
 
 #if you want to run the demo multiple times, just increment this variable
@@ -27,19 +27,28 @@ home=~/sandbox/t$V
 
 flowName=run$V
 
+# GOOGLE CLOUD STORAGE
 gcsRegion=europe-west1
 bucket=$projectID-iot-demo
 tempLocation=$bucket/temp/
+
+# BIGQUERY
 dataset=DemoIoT20171213
+table=$projectID:$dataset.$flowName
+
+# DATAFLOW
 jobName=dataflow-job-$flowName
 maxWorkers=10
+
 table=$projectID:$dataset.$flowName
 dataflowzone=europe-west1-b
 workerType=custom-4-8192
 
+# PUB/SUB
 topic=iot-temp-measures-$V
 topicFullName=projects/$projectID/topics/$topic
 
+# IoT CORE
 iotzone=europe-west1
 deviceName=demo-rs256-device-$flowName
 registryName=device-registry-$flowName
