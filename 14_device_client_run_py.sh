@@ -19,7 +19,8 @@ python cloudiot_mqtt_example.py \
 	--algorithm RS256 \
 	--cloud_region $iotzone \
 	--num_messages 1000 \
-	--ca_certs ../../../device_keys/roots.pem 
+	--ca_certs ../../../device_keys/roots.pem \
+	--sensed_city "Chicago"
 
 #	--num_messages 1000 \
 #	--message_type event \

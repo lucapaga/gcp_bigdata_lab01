@@ -25,6 +25,7 @@ import argparse
 import datetime
 import os
 import time
+import random
 
 import jwt
 import paho.mqtt.client as mqtt
@@ -194,12 +195,20 @@ def parse_command_line_args():
             type=int,
             help=('Expiration time, in minutes, for JWT tokens.'))
 
+    parser.add_argument(
+            '--sensed_city',
+            default='Modena',
+            help=('A city in the world'))
+
     return parser.parse_args()
 
 
 # [START iot_mqtt_run]
 def main():
     args = parse_command_line_args()
+
+    # Configuring "CITY"
+    city = args.sensed_city
 
     # Publish to the events or state topic based on the flag.
     sub_topic = 'events' if args.message_type == 'event' else 'state'
@@ -214,12 +223,24 @@ def main():
         args.mqtt_bridge_hostname, args.mqtt_bridge_port)
 
     # Publish num_messages mesages to the MQTT bridge once per second.
+    reference_date = datetime.datetime.today()
+    reference_date = reference_date.replace(year=2017)
+    reference_date = reference_date.replace(month=8)
+    reference_date = reference_date.replace(day=1)
+
     for i in range(1, args.num_messages + 1):
         payload_original = '{}/{}-payload-{}'.format(
                 args.registry_id, args.device_id, i)
 
-	payload = '\{"message":"{}/{}-message-{}", "city":"Bologna", "temperature": "{}", "hour"."{}"\}'.format(
-                args.registry_id, args.device_id, i, 20, 11)
+	temperature=random.uniform(-20, 40)
+	# hour=random.randint(1, 23)
+	payload = '{{ "message":"{}/{}-message-{}", "city":"{}", "temperature": "{}", "hour": "{}", "day": "{}", "month": "{}", "year": "{}" }}'.format(
+                args.registry_id, 
+		args.device_id, 
+		i, 
+		city,
+		temperature, 
+		reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
 
 	print('Publishing message {}/{}: \'{}\''.format(
                 i, args.num_messages, payload))
@@ -239,8 +260,11 @@ def main():
         # delivery.
         client.publish(mqtt_topic, payload, qos=1)
 
+	# date progress
+	reference_date = reference_date + datetime.timedelta(hours=1)
+
         # Send events every second. State should not be updated as often
-        time.sleep(1 if args.message_type == 'event' else 5)
+        time.sleep(0.3 if args.message_type == 'event' else 5)
 
     # End the network loop and finish.
     client.loop_stop()
