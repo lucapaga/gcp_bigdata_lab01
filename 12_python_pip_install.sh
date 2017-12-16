@@ -1,3 +1,3 @@
 sudo apt-get install python-pip
-pip install --upgrade pip
-pip install virtualenv
+sudo pip install --upgrade pip
+sudo pip install virtualenv
