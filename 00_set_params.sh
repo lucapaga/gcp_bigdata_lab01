@@ -20,17 +20,17 @@ echo "GCS Project is: $projectID"
 #export projectID
 
 #if you want to run the demo multiple times, just increment this variable
-V=1
+V=lucapaga_1
 
 #sandbox location for local operations
 home=~/sandbox/t$V
 
-flowName=run$V
+flowName=flow_$V
 
 # GOOGLE CLOUD STORAGE
 gcsRegion=europe-west1
 bucket=$projectID-iot-demo
-tempLocation=$bucket/temp/
+tempLocation=$bucket/$flowName/temp/
 
 # BIGQUERY
 dataset=DemoIoT20171213
