@@ -44,7 +44,7 @@ def receive_messages(project, subscription_name):
     # exiting to allow it to process messages in the background.
     print('Listening for messages on {}'.format(subscription_path))
     while True:
-        time.sleep(60)
+        time.sleep(2)
 
 
 def publish_messages(project, topic_name):
