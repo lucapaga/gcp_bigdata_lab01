@@ -63,6 +63,8 @@ if __name__ == '__main__':
             required=True,
             help='Which encryption algorithm to use to generate the JWT.')
 
+    args = parser.parse_args()
+    
     if args.mode == 'consume':
         receive_messages(args.project_id, args.subscription_name)
     else:
