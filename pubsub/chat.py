@@ -46,6 +46,20 @@ def receive_messages(project, subscription_name):
     while True:
         time.sleep(60)
 
+
+def publish_messages(project, topic_name):
+    """Publishes multiple messages to a Pub/Sub topic."""
+    publisher = pubsub_v1.PublisherClient()
+    topic_path = publisher.topic_path(project, topic_name)
+
+    while True:
+        your_msg = raw_input("Enter your message: ")
+        data = u'Message TEXT: {}'.format(your_msg)
+        data = data.encode('utf-8')
+        publisher.publish(topic_path, data=data)
+        print('Published messages.')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=(
             'Sample chat with PUB/SUB'))
@@ -53,6 +67,10 @@ if __name__ == '__main__':
             '--project_id',
             default=os.environ.get('GOOGLE_CLOUD_PROJECT'),
             help='GCP cloud project name')
+    parser.add_argument(
+            '--topic_name',
+            required=True,
+            help='PUB/SUB Topic to leverage')
     parser.add_argument(
             '--subscription_name',
             required=True,
@@ -64,8 +82,8 @@ if __name__ == '__main__':
             help='Which encryption algorithm to use to generate the JWT.')
 
     args = parser.parse_args()
-    
+
     if args.mode == 'consume':
         receive_messages(args.project_id, args.subscription_name)
     else:
-        print("Not implemented yet, sorry")
+        publish_messages(args.project_id, args.topic_name)
