@@ -45,6 +45,7 @@ def receive_messages(project, subscription_name):
     print('Listening for messages on {}'.format(subscription_path))
     while True:
         time.sleep(2)
+        print("No News Good News")
 
 
 def publish_messages(project, topic_name):
