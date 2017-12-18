@@ -1,8 +1,11 @@
 #!/bin/bash
-. ../00_set_params.sh
+. ../01-setup/00_set_params.sh
 
-gcloud beta pubsub topics create chat-$V
-gcloud beta pubsub subscriptions create chat-$V-subscription --topic chat-$V
+# CREATE TOPIC NAMED 'chat-$V' WITH CLI
+# (https://cloud.google.com/sdk/gcloud/reference/beta/pubsub/topics/create)
+
+# CREATE SUBSCRIPTION NAMED 'chat-$V-subscription' FOR TOPIC 'chat-$V' WITH CLI
+# (https://cloud.google.com/sdk/gcloud/reference/beta/pubsub/subscriptions/create)
 
 echo ""
 echo "----------------------------------"

@@ -1,4 +1,8 @@
-. 00_set_params.sh
+. ../01-setup/00_set_params.sh
+
+## ---------------------------------------------------------------------------
+##  FIRST OF ALL REVIEW THE CODE INTO ../src/python/mqtt_client/cloudiot_mqtt_example.py
+## ---------------------------------------------------------------------------
 
 
 if [ -z "$1" ]

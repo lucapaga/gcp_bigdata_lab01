@@ -223,27 +223,30 @@ def main():
         args.mqtt_bridge_hostname, args.mqtt_bridge_port)
 
     # Publish num_messages mesages to the MQTT bridge once per second.
+    # [REVIEW HERE] setting the start date for your measures
     reference_date = datetime.datetime.today()
     reference_date = reference_date.replace(year=2017)
     reference_date = reference_date.replace(month=8)
     reference_date = reference_date.replace(day=1)
 
     for i in range(1, args.num_messages + 1):
-        payload_original = '{}/{}-payload-{}'.format(
-                args.registry_id, args.device_id, i)
 
-	temperature=random.uniform(-20, 40)
-	# hour=random.randint(1, 23)
-	payload = '{{ "message":"{}/{}-message-{}", "city":"{}", "temperature": "{}", "hour": "{}", "day": "{}", "month": "{}", "year": "{}" }}'.format(
-                args.registry_id, 
-		args.device_id, 
-		i, 
-		city,
-		temperature, 
-		reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
+        # [REVIEW HERE] YOU CAN CHANGE THIS SOLUTION IF YOU HAVE A SMARTER ONE  ...
+        temperature=random.uniform(-20, 40)
 
-	print('Publishing message {}/{}: \'{}\''.format(
-                i, args.num_messages, payload))
+        # [REVIEW HERE] PREPARE THE MESSAGE OF YOUR DEVICE. REQUIREMENTS:
+        #   - JSON
+        #   - Every property (JSON 'key') name must be equal than BigQuery column name
+        #
+        payload = '{{ "message":"{}/{}-message-{}", "city":"{}", "temperature": "{}", "hour": "{}", "day": "{}", "month": "{}", "year": "{}" }}'.format(
+                    args.registry_id,
+        	args.device_id,
+        	i,
+        	city,
+        	temperature,
+        	reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
+
+        print('Publishing message {}/{}: \'{}\''.format(i, args.num_messages, payload))
         seconds_since_issue = (datetime.datetime.utcnow() - jwt_iat).seconds
         if seconds_since_issue > 60 * jwt_exp_mins:
             print('Refreshing token after {}s').format(seconds_since_issue)
@@ -255,15 +258,13 @@ def main():
                 args.algorithm, args.ca_certs, args.mqtt_bridge_hostname,
                 args.mqtt_bridge_port)
 
-        # Publish "payload" to the MQTT topic. qos=1 means at least once
-        # delivery. Cloud IoT Core also supports qos=0 for at most once
-        # delivery.
+        # [REVIEW HERE] MQTT, NOT GOOGLE CLIENT API. QOS=1 --> AT-LEAST-ONCE SEMANTIC
         client.publish(mqtt_topic, payload, qos=1)
 
-	# date progress
-	reference_date = reference_date + datetime.timedelta(hours=1)
+    	# date progress
+    	reference_date = reference_date + datetime.timedelta(hours=1)
 
-        # Send events every second. State should not be updated as often
+        # [REVIEW HERE] YOU CAN CHANGE THE TIME-MACHINE SIMULATION SPEED
         time.sleep(0.3 if args.message_type == 'event' else 5)
 
     # End the network loop and finish.

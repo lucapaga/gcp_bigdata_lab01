@@ -1,13 +1,6 @@
 #!/bin/bash
 
-. ../00_set_params.sh
+. ../01-setup/00_set_params.sh
 
-if [ "$1" == "loop" ]
-then
-  while true; do
-    gcloud beta pubsub subscriptions pull --auto-ack --limit 10 chat-$V-subscription
-    sleep 2
-  done
-else
-  gcloud beta pubsub subscriptions pull --auto-ack --limit 100 chat-$V-subscription
-fi
+# STREAM-PULL 'chat-$V-subscription' SUBSCRIPTION SLEEPING 2s FOR EACH LOOP
+# (https://cloud.google.com/sdk/gcloud/reference/beta/pubsub/subscriptions/pull)
