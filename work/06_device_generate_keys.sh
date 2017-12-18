@@ -14,11 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-openssl req -x509 -newkey rsa:2048 -keyout device_keys/rsa_private.pem -nodes -out \
-    device_keys/rsa_cert.pem -subj "/CN=unused"
-openssl ecparam -genkey -name prime256v1 -noout -out device_keys/ec_private.pem
-openssl ec -in device_keys/ec_private.pem -pubout -out device_keys/ec_public.pem
-openssl pkcs8 -topk8 -inform PEM -outform DER -in device_keys/rsa_private.pem \
-    -nocrypt > device_keys/rsa_private_pkcs8
-openssl pkcs8 -topk8 -inform PEM -outform DER -in device_keys/ec_private.pem \
-    -nocrypt > device_keys/ec_private_pkcs8
+openssl req -x509 -newkey rsa:2048 -keyout ../device_keys/rsa_private.pem -nodes -out \
+    ../device_keys/rsa_cert.pem -subj "/CN=unused"
+openssl ecparam -genkey -name prime256v1 -noout -out ../device_keys/ec_private.pem
+openssl ec -in ../device_keys/ec_private.pem -pubout -out ../device_keys/ec_public.pem
+openssl pkcs8 -topk8 -inform PEM -outform DER -in ../device_keys/rsa_private.pem \
+    -nocrypt > ../device_keys/rsa_private_pkcs8
+openssl pkcs8 -topk8 -inform PEM -outform DER -in ../device_keys/ec_private.pem \
+    -nocrypt > ../device_keys/ec_private_pkcs8

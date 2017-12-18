@@ -1,15 +1,15 @@
 . 00_set_params.sh
 
-cd src/python/mqtt_client/
+cd ../src/python/mqtt_client/
 
-ls -l
+#ls -l
 
 #virtualenv env
 #source env/bin/activate
 
 #pip install -r requirements.txt
 
-ls -l ../../../device_keys/rsa_private_pkcs8
+#ls -l ../../../device_keys/rsa_private_pkcs8
 
 if [ -z $1 ];
 then
@@ -43,4 +43,3 @@ fi
 #	--message_type event \
 #	--mqtt_bridge_hostname \
 #	--mqtt_bridge_port 443 \
-	
