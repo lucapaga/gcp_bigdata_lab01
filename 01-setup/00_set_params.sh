@@ -20,7 +20,7 @@ echo "GCS Project is: $projectID"
 #export projectID
 
 #if you want to run the demo multiple times, just increment this variable
-V=lucapaga_1
+V=paganelli_1
 
 #sandbox location for local operations
 home=~/sandbox/t$V
