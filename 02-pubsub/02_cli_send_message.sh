@@ -4,3 +4,4 @@
 
 # GET COMMAND ARGS AS MESSAGE AND PUBLISH IT INTO 'chat-$V' TOPIC
 # (https://cloud.google.com/sdk/gcloud/reference/beta/pubsub/topics/publish)
+gcloud beta pubsub topics publish chat-$V "$*"

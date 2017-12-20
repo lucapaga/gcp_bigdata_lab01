@@ -8,3 +8,8 @@ echo "        TOPIC: $topicFullName"
 # CREATE A DEVICE REGISTRY INTO CONFIGURED 'iotzone' TO WORK WITH PUB/SUB TOPIC
 # DEFINED IN 'topicFullName'
 # (https://cloud.google.com/sdk/gcloud/reference/beta/iot/registries/create)
+
+gcloud beta iot registries create $registryName \
+	--region=$iotzone \
+	--event-pubsub-topic=$topicFullName
+	

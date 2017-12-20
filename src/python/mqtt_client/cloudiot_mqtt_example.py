@@ -226,7 +226,7 @@ def main():
     # [REVIEW HERE] setting the start date for your measures
     reference_date = datetime.datetime.today()
     reference_date = reference_date.replace(year=2017)
-    reference_date = reference_date.replace(month=8)
+    reference_date = reference_date.replace(month=10)
     reference_date = reference_date.replace(day=1)
 
     for i in range(1, args.num_messages + 1):

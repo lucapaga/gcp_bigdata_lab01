@@ -8,3 +8,5 @@
 #  - day: a day of the month (1-based)
 #  - month: a month (1-based)
 #  - year: year
+bq mk -t $table message:STRING,city:STRING,temperature:float,hour:INTEGER,day:INTEGER,month:INTEGER,year:INTEGER
+

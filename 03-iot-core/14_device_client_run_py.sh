@@ -38,7 +38,7 @@ else
         --private_key_file ../../../device_keys/rsa_private.pem \
         --algorithm RS256 \
         --cloud_region $iotzone \
-        --num_messages 5000 \
+        --num_messages 1000 \
         --ca_certs ../../../device_keys/roots.pem \
         --sensed_city $1
 
