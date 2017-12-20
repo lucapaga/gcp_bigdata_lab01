@@ -214,7 +214,8 @@ def on_button_pressed(button):
     red_led.off()
 
 def activate_termometer_thread():
-
+    print("No-op")
+    
 # [START iot_mqtt_run]
 def run_termometer(number_of_sensings):
     # Configuring "CITY"
