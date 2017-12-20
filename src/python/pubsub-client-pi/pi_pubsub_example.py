@@ -139,12 +139,12 @@ def run_termometer_pubsub(number_of_sensings):
         temperature=random.uniform(-20, 40)
 
         payload = '{{ "message":"{}/{}-message-{}", "city":"{}", "temperature": "{}", "hour": "{}", "day": "{}", "month": "{}", "year": "{}" }}'.format(
-                    args.registry_id,
-        	args.device_id,
-        	i,
-        	city,
-        	temperature,
-        	reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
+                    "a-registry-id",
+                	"a-registry-id",
+                	i,
+                	city,
+                	temperature,
+                	reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
 
         print('Publishing message {}/{}: \'{}\''.format(i, number_of_sensings, payload))
 
@@ -155,7 +155,7 @@ def run_termometer_pubsub(number_of_sensings):
     	reference_date = reference_date + datetime.timedelta(hours=1)
 
         # [REVIEW HERE] YOU CAN CHANGE THE TIME-MACHINE SIMULATION SPEED
-        time.sleep(0.3 if args.message_type == 'event' else 5)
+        time.sleep(0.3) # if args.message_type == 'event' else 5)
 
 
 

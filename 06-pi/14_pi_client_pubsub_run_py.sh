@@ -4,6 +4,8 @@
 ##  FIRST OF ALL REVIEW THE CODE INTO ../src/python/mqtt_client/cloudiot_mqtt_example.py
 ## ---------------------------------------------------------------------------
 
+export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/gcp_bigdata_lab01/service-account/sa-tetrapak-demo.json
+
 cd ../src/python/pubsub-client-pi/
 
 #ls -l
