@@ -124,7 +124,7 @@ def run_termometer_pubsub(number_of_sensings):
     city = args.sensed_city
     pubsub_topic_name=args.pub_sub_topic
 
-    publisher = pubsub_v1.PublisherClient()
+    publish_client = pubsub_v1.PublisherClient()
     topic = 'projects/{project_id}/topics/{topic}'.format(
             project_id=args.project_id,
             topic=pubsub_topic_name
