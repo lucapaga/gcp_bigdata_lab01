@@ -32,6 +32,7 @@ import paho.mqtt.client as mqtt
 
 from gpiozero import LED, Button, Buzzer
 from time import sleep
+from google.cloud import pubsub_v1
 
 
 # [START iot_mqtt_jwt]
@@ -215,9 +216,41 @@ def on_button_pressed(button):
 
 def activate_termometer_thread():
     print("No-op")
-    
+
+def run_termometer_pubsub(number_of_sensings):
+    city = args.sensed_city
+    pubsub_topic_name=""
+
+    reference_date = datetime.datetime.today()
+    #reference_date = reference_date.replace(year=2017)
+    #reference_date = reference_date.replace(month=8)
+    #reference_date = reference_date.replace(day=1)
+
+    for i in range(1, number_of_sensings + 1):
+        temperature=random.uniform(-20, 40)
+
+        payload = '{{ "message":"{}/{}-message-{}", "city":"{}", "temperature": "{}", "hour": "{}", "day": "{}", "month": "{}", "year": "{}" }}'.format(
+                    args.registry_id,
+        	args.device_id,
+        	i,
+        	city,
+        	temperature,
+        	reference_date.hour, reference_date.day, reference_date.month, reference_date.year)
+
+        print('Publishing message {}/{}: \'{}\''.format(i, number_of_sensings, payload))
+
+        green_led.on()
+        client.publish(mqtt_topic, payload, qos=1)
+        green_led.off()
+
+    	reference_date = reference_date + datetime.timedelta(hours=1)
+
+        # [REVIEW HERE] YOU CAN CHANGE THE TIME-MACHINE SIMULATION SPEED
+        time.sleep(0.3 if args.message_type == 'event' else 5)
+
+
 # [START iot_mqtt_run]
-def run_termometer(number_of_sensings):
+def run_termometer_mqtt(number_of_sensings):
     # Configuring "CITY"
     city = args.sensed_city
 
