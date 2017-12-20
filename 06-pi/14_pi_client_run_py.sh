@@ -4,7 +4,7 @@
 ##  FIRST OF ALL REVIEW THE CODE INTO ../src/python/mqtt_client/cloudiot_mqtt_example.py
 ## ---------------------------------------------------------------------------
 
-cd ../src/python/mqtt_client-pi/
+cd ../src/python/mqtt-client-pi/
 
 #ls -l
 
