@@ -101,12 +101,17 @@ def parse_command_line_args():
 
 
 def on_button_pressed(button):
+    print("BUTTON PRESSED: processing handler ...")
     red_led.on()
     for i in range(1, 4):
         try:
+            print("Publishing message {}".format(i))
             run_termometer_pubsub(1)
+            print("Publishing done!")
         except Exception as e:
-            pass 
+            print("Publishin failed...:" + str(e))
+            pass
+    print("This is it, terminating...")
     green_led.off()
     red_led.off()
 
