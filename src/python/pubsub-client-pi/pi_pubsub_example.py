@@ -103,7 +103,10 @@ def parse_command_line_args():
 def on_button_pressed(button):
     red_led.on()
     for i in range(1, 4):
-        run_termometer_pubsub(1)
+        try:
+            run_termometer_pubsub(1)
+        except Exception as e:
+            pass 
     green_led.off()
     red_led.off()
 
@@ -111,8 +114,10 @@ def activate_termometer_thread():
     print("No-op")
 
 def run_termometer_pubsub(number_of_sensings):
+    args = parsed_cli_args
+
     city = args.sensed_city
-    pubsub_topic_name=pub_sub_topic
+    pubsub_topic_name=args.pub_sub_topic
 
     publisher = pubsub_v1.PublisherClient()
     topic = 'projects/{project_id}/topics/{topic}'.format(
